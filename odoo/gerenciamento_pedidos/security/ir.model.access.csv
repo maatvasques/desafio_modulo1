@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pedido_user,access.gerenciamento_pedidos.pedido,model_gerenciamento_pedidos_pedido,base.group_user,1,1,1,1
+access_pedido_item_user,access.gerenciamento_pedidos.pedido.item,model_gerenciamento_pedidos_pedido_item,base.group_user,1,1,1,1

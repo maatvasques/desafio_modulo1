@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_pedido_pdf" model="ir.actions.report">
+        <field name="name">Relatório de Pedido</field>
+        <field name="model">gerenciamento_pedidos.pedido</field>
+        <field name="report_name">gerenciamento_pedidos.report_pedido_document</field>
+        <field name="report_file">gerenciamento_pedidos.report_pedido_document</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="print_report_name">'Relatório de Pedido - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_gerenciamento_pedidos_pedido"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

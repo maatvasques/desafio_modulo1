@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_gerenciamento_pedidos" model="ir.actions.act_window">
+        <field name="name">Pedidos</field>
+        <field name="res_model">gerenciamento_pedidos.pedido</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_gerenciamento_pedidos_form" model="ir.ui.view">
+        <field name="name">gerenciamento_pedidos.pedido.form</field>
+        <field name="model">gerenciamento_pedidos.pedido</field>
+        <field name="arch" type="xml">
+            <form string="Pedido">
+                <header>
+                    <button name="action_enviar_whatsapp" string="Enviar por WhatsApp" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <field name="cliente_id"/>
+                        <field name="telefone_whatsapp"/>
+                        <field name="data_pedido"/>
+                        <field name="total" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Itens do Pedido">
+                            <field name="pedido_item_ids">
+                                <tree editable="bottom">
+                                    <field name="produto_id"/>
+                                    <field name="quantidade"/>
+                                    <field name="preco_unitario"/>
+                                    <field name="subtotal"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_ids"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gerenciamento_pedidos_tree" model="ir.ui.view">
+        <field name="name">gerenciamento_pedidos.pedido.tree</field>
+        <field name="model">gerenciamento_pedidos.pedido</field>
+        <field name="arch" type="xml">
+            <tree string="Pedidos">
+                <field name="name"/>
+                <field name="cliente_id"/>
+                <field name="data_pedido"/>
+                <field name="total"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_gerenciamento_pedidos_root" name="Gerenciamento de Pedidos" web_icon="gerenciamento_pedidos,static/description/icon.png"/>
+    <menuitem id="menu_gerenciamento_pedidos" name="Pedidos" parent="menu_gerenciamento_pedidos_root" action="action_gerenciamento_pedidos"/>
+</odoo>
