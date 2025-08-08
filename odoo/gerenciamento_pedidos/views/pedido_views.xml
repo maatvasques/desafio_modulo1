@@ -20,7 +20,6 @@
                     </div>
                     <group>
                         <field name="cliente_id"/>
-                        <field name="telefone_whatsapp"/>
                         <field name="data_pedido"/>
                         <field name="total" readonly="1"/>
                     </group>
